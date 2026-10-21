@@ -1,75 +1,61 @@
-
 #include <stdio.h>
-#include <conio.h>
 
-void main()
+int main()
 {
-    int nv, sn, road, min;
-    int edel[20][20], tdel[20][20];
-    char sv, adver[20], ch;
+    printf("Enter no. of vertices: ");
+    int n;
+    scanf("%d", &n);
 
-    clrscr();
+    printf("Enter no. of adj vertices: ");
+    int adno;
+    scanf("%d", &adno);
 
-    // Input number of vertices
-    printf("\nEnter no. of vertices: ");
-    scanf("%d", &nv);
+    printf("Enter source vertex no. and name: ");
+    int svno;
+    char svname;
+    scanf("%d %c", &svno, &svname);
 
-    // Input source vertex number and name
-    printf("\nEnter the source vertex no. and name: ");
-    scanf("%d", &sn);
-    fflush(stdin);
-    sv = getchar();
-
-    // Input number of adjacent vertices
-    printf("\nEnter no. of adjacent vertices to vertex %c: ", sv);
-    scanf("%d", &road);
-
-    // Input delay and name of each adjacent vertex
-    for (int i = 0; i < road; i++)
+    int srcdelay[n];
+    char adname[adno];
+    for (int i = 0; i < adno; i++)
     {
-        printf("\nEnter time delay and node name: ");
-        scanf("%d %c", &edel[0][i], &adver[i]);
+        printf("\nEnter time delay and node name:");
+        scanf("%d %c", &srcdelay[i], &adname[i]);
     }
 
-    // Input delays from each adjacent vertex to all vertices
-    for (int i = 0; i < road; i++)
+    int neighbor_delay[adno][n];
+    for (int i = 0; i < adno; i++)
     {
-        printf("\nEnter time delay from %c to all other nodes: ",
-               adver[i]);
-
-        for (int j = 0; j < nv; j++)
+        printf("\nEnter time delay from %c to all other vertices", adname[i]);
+        for (int j = 0; j < n; j++)
         {
-            scanf("%d", &tdel[i][j]);
+
+            scanf(" %d", &neighbor_delay[i][j]);
         }
     }
 
-    // Calculate minimum delay and next-hop vertex
-    printf("\nDelay via - vertex\n");
-
-    for (int i = 0; i < nv; i++)
+    printf("delay via - vertex");
+    for (int i = 0; i < n; i++)
     {
-        min = 1000;
-        ch = '-';
+        int min = 30000;
+        char next = '-';
 
-        for (int j = 0; j < road; j++)
+        for (int j = 0; j < adno; j++)
         {
-            if (min > (tdel[i][j] + edel[0][j]))
+            if (min > srcdelay[j] + neighbor_delay[j][i])
             {
-                min = tdel[i][j] + edel[0][j];
-                ch = adver[j];
+                min = srcdelay[j] + neighbor_delay[j][i];
+                next = adname[j];
             }
         }
 
-        // Display the minimum delay and next hop
-        if (i != sn - 1)
+        if (i != svno - 1)
         {
-            printf("\n%d %c", min, ch);
+            printf("\n %d %c", min, next);
         }
         else
         {
             printf("\n0 -");
         }
     }
-
-    getch();
 }

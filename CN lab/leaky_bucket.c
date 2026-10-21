@@ -1,91 +1,54 @@
-
 #include <stdio.h>
-
-#define BUCKET_SIZE 10
-
-// Function to implement the Leaky Bucket Algorithm
-void leakyBucket(int incoming[], int n, int outputRate)
-{
-    int bucketContent = 0;
-
-    // Display table headings
-    printf("\nTime\tIncoming\tBucket\tDropped\tOutgoing\tRemaining\n");
-
-    // Process incoming packets at each time interval
-    for (int i = 0; i < n; i++)
-    {
-        int accepted, dropped, sent;
-
-        printf("%d\t%d\t\t", i + 1, incoming[i]);
-
-        // Check whether incoming packets exceed bucket capacity
-        if (bucketContent + incoming[i] > BUCKET_SIZE)
-        {
-            accepted = BUCKET_SIZE - bucketContent;
-            dropped = incoming[i] - accepted;
-            bucketContent += accepted;
-
-            printf("%d\t%d\t", bucketContent, dropped);
-        }
-        else
-        {
-            // Accept all incoming packets
-            bucketContent += incoming[i];
-
-            printf("%d\t0\t", bucketContent);
-        }
-
-        // Send packets at the fixed output rate
-        sent = (bucketContent < outputRate) ?
-                bucketContent : outputRate;
-
-        bucketContent -= sent;
-
-        // Display outgoing packets and remaining packets
-        printf("%d\t\t%d\n", sent, bucketContent);
-    }
-
-    // Empty the remaining bucket after incoming packets stop
-    int i = n + 1;
-
-    while (bucketContent > 0)
-    {
-        int sent = (bucketContent < outputRate) ?
-                    bucketContent : outputRate;
-
-        printf("%d\t0\t\t%d\t0\t%d\t\t%d\n",
-               i, bucketContent, sent, bucketContent - sent);
-
-        bucketContent -= sent;
-        i++;
-    }
-}
 
 int main()
 {
-    int n, outputRate;
+    int size = 10;
 
-    // Input the number of time intervals
-    printf("\nEnter no. of time intervals: ");
+    printf("Enter no. of time intravels: ");
+    int n;
     scanf("%d", &n);
 
     int incoming[n];
-
-    // Input incoming packets at each interval
-    printf("Enter incoming packets at each interval:\n");
-
+    printf("Enter incoming packets at each intravel\n");
     for (int i = 0; i < n; i++)
     {
-        printf("Interval %d: ", i + 1);
+        printf("Intravel %d", i);
         scanf("%d", &incoming[i]);
     }
 
-    // Input the fixed output rate
     printf("Enter output rate: ");
-    scanf("%d", &outputRate);
+    int rate;
+    scanf("%d", &rate);
 
-    // Call the Leaky Bucket function
-    leakyBucket(incoming, n, outputRate);
+    printf("Time\t Input\t Bucket \t Dropped\t Output\t Remaining\t\n");
 
-    return 0;
+    int bucket = 0;
+    for (int i = 0; i < n; i++)
+    {
+        int dropped = 0;
+
+        if (bucket + incoming[i] > size)
+        {
+            dropped = bucket + incoming[i] - size;
+            bucket = size;
+        }
+        else
+        {
+            bucket += incoming[i];
+        }
+        int sent = bucket > rate ? rate : bucket;
+        bucket -= sent;
+        printf("%d\t%d\t\t%d\t%d\t%d\t\t%d\n",
+               i + 1, incoming[i], bucket + sent, dropped, sent, bucket); // print
+    }
+    int i = n;
+    while (bucket > 0)
+    {
+        int sent = rate > bucket ? bucket : rate;
+        bucket -= sent;
+
+        printf("%d\t0\t\t%d\t0\t%d\t\t%d\n",
+               i + 1, bucket + sent, sent, bucket);
+        i++;
+    }
 }

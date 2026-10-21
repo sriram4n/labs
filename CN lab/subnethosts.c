@@ -17,11 +17,14 @@ void spanning_tree(int root)
 
         for (int i = 0; i < n; i++)
         {
-            if (a[k][i] == 1 && visited[i] == 0)
+            if (visited[i] != 1)
             {
-                visited[i] = 1;
-                queue[rear++] = i;
-                printf("%d -> %d\n", k + 1, i + 1);
+                if (a[k][i] == 1)
+                {
+                    visited[i] = 1;
+                    queue[rear++] = i;
+                    printf("%d -> %d\n", k + 1, i + 1);
+                }
             }
         }
     }
@@ -42,7 +45,7 @@ int main()
         visited[i] = 0;
     }
 
-    printf("Enter root host (0 to %d): ", n - 1);
+    printf("Enter root host:");
     int root;
     scanf("%d", &root);
 
