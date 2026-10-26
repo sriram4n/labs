@@ -21,7 +21,7 @@ class _CounterState extends State<Counter> {
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: Row(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("You clicked the button this many times:"),

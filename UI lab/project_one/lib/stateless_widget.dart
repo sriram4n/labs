@@ -19,7 +19,7 @@ class MyClass extends StatelessWidget {
               width: 300,
               color: Colors.deepPurple,
               child: Center(
-                child: ElevatedButton(onPressed: clicked, child: Text("press me bbg")),
+                child: ElevatedButton(onPressed: clicked, child: Text("clik me")),
               ),
             ),
           ),
