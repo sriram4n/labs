@@ -38,20 +38,20 @@ int main()
     for (int i = 0; i < n; i++)
     {
         int min = 30000;
-        char next = '-';
+        char name = '-';
 
         for (int j = 0; j < adno; j++)
         {
             if (min > srcdelay[j] + neighbor_delay[j][i])
             {
                 min = srcdelay[j] + neighbor_delay[j][i];
-                next = adname[j];
+                name = adname[j];
             }
         }
 
         if (i != svno - 1)
         {
-            printf("\n %d %c", min, next);
+            printf("\n %d %c", min, name);
         }
         else
         {

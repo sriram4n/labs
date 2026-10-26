@@ -18,8 +18,3 @@ accuracy = accuracy_score(y_test,y_pred)
 print("accuracy: ", accuracy)
 print("actual values: ", y_test)
 print("predicted values: ", y_pred)
-
-
-
-
-
