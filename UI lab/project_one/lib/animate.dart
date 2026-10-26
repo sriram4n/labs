@@ -12,7 +12,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
-  late Animation<double> animation;
+  late Animation animation;
 
   @override
   void initState() {
@@ -23,9 +23,9 @@ class _MyAppState extends State<MyApp>
       duration: Duration(milliseconds: 300),
     );
 
-    animation = Tween<double>(
-      begin: 20,
-      end: 350,
+    animation = Tween(
+      begin: 20.0,
+      end: 350.0,
     ).animate(controller);
 
     controller.repeat(reverse: true);
@@ -46,9 +46,4 @@ class _MyAppState extends State<MyApp>
     );
   }
 
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
 }
