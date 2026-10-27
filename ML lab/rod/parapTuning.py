@@ -6,6 +6,9 @@ from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from sklearn.datasets import load_iris
 
+# there is a short version in same folder
+
+
 # Load dataset
 iris = load_iris()
 X = iris.data

@@ -51,7 +51,8 @@ while True:
     cluster1 = c1
     cluster2 = c2
     cluster3 = c3
-
+    
+    # update centroids
     if len(c1) > 0:
         a = find_centroid(c1)
     if len(c2) > 0:
