@@ -1,4 +1,5 @@
-import os
+# LSTM for cats and dogs dataset
+
 import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
@@ -19,7 +20,6 @@ train_ds = image_dataset_from_directory(
     image_size=(64, 64),
     label_mode="binary",
     subset="training"
-
 )
 
 # Load testing dataset
@@ -91,19 +91,3 @@ print(classification_report(
 # Confusion matrix
 cm = confusion_matrix(y_true, y_pred)
 print("Confusion Matrix:\n", cm)
-
-plt.figure(figsize=(5, 4))
-plt.imshow(cm, cmap="Blues")
-plt.title("Confusion Matrix")
-plt.xlabel("Predicted Label")
-plt.ylabel("Actual Label")
-plt.xticks([0, 1], train_ds.class_names)
-plt.yticks([0, 1], train_ds.class_names)
-
-for i in range(2):
-    for j in range(2):
-        plt.text(j, i, cm[i, j], ha="center", va="center")
-
-plt.colorbar()
-plt.tight_layout()
-plt.show()

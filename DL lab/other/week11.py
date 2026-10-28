@@ -4,11 +4,13 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import SimpleRNN, Dense
+from tensorflow.keras.models import mnist
 from sklearn.metrics import accuracy_score, precision_score, recall_score
 from sklearn.metrics import f1_score, confusion_matrix
 
+
 # Step 1: Load MNIST dataset
-(x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
 
 # Step 2: Normalize images
 x_train = x_train / 255.0
@@ -28,10 +30,10 @@ model.compile(
 )
 
 # Step 5: Train model
-model.fit(x_train, y_train, epochs=5, batch_size=128, verbose=1)
+model.fit(x_train, y_train, epochs=5, batch_size=128)
 
 # Step 6: Predict digits
-y_pred = np.argmax(model.predict(x_test, verbose=0), axis=1)
+y_pred = np.argmax(model.predict(x_test), axis=1)
 
 # Step 7: Evaluate performance
 print("Accuracy:", accuracy_score(y_test, y_pred))
