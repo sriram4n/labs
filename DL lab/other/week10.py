@@ -1,6 +1,5 @@
 # Week 10: VGG16 Transfer Learning for Cats and Dogs
 
-import tensorflow as tf
 from tensorflow.keras.applications import VGG16
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Flatten, Dense, Droput

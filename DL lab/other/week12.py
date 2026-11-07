@@ -2,7 +2,6 @@
 
 import numpy as np
 import tensorflow as tf
-import matplotlib.pyplot as plt
 from tensorflow.keras.utils import image_dataset_from_directory
 from sklearn.metrics import classification_report, confusion_matrix
 from tensorflow.keras.models import Sequential
@@ -78,7 +77,7 @@ y_pred = (y_prob >= 0.5).astype(int).flatten()
 y_true = y_test.flatten().astype(int)
 
 # Evaluate performance
-loss, accuracy = model.evaluate(X_test, y_test, verbose=0)
+loss, accuracy = model.evaluate(X_test, y_test)
 
 print("Accuracy:", accuracy)
 print("\nClassification Report:")

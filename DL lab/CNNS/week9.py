@@ -53,13 +53,13 @@ model.fit(x_train, y_train,
 # Step 6: Evaluate model
 print("\nStep 6: Evaluating model")
 
-loss, accuracy = model.evaluate(x_test, y_test, verbose=0)
+loss, accuracy = model.evaluate(x_test, y_test)
 print("Test accuracy:", round(accuracy * 100, 2), "%")
 
 # Step 7: Predict digits
 print("\nStep 7: Making predictions")
 
-pred = np.argmax(model.predict(x_test, verbose=0), axis=1)
+pred = np.argmax(model.predict(x_test), axis=1)
 
 # Step 8: Classification report
 print("\nStep 8: Classification report")

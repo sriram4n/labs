@@ -4,9 +4,8 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import SimpleRNN, Dense
-from tensorflow.keras.models import mnist
-from sklearn.metrics import accuracy_score, precision_score, recall_score
-from sklearn.metrics import f1_score, confusion_matrix
+from tensorflow.keras.datasets import mnist
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 
 
 # Step 1: Load MNIST dataset

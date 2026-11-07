@@ -23,11 +23,10 @@ y = np.concatenate((y_train, y_test), axis=0)
 
 print("Total images:", x.shape[0])
 
-# Step 3: Normalize images
+# Step 3: Normalize & reshape images
 print("\nStep 3: Normalizing images")
 x = x.astype("float32") / 255.0
 
-# Step 4: Reshape images
 print("\nStep 4: Reshaping images")
 x = x.reshape(-1, 28, 28, 1)
 print("Image shape:", x.shape)
@@ -39,10 +38,6 @@ print("Label shape:", y.shape)
 
 # Step 6: Create 10-fold cross-validation
 print("\nStep 6: Starting 10-fold cross-validation")
-
-kfold = KFold(n_splits=10, shuffle=True, random_state=42)
-scores = []
-fold = 1
 
 kf = KFold(n_splits=10, shuffle=True, random_state=42)
 scores = []
