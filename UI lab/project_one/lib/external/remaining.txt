@@ -1,0 +1,13 @@
+rich text
+menu button
+download flutter / dart / AS in linux / windows
+
+
+additional
+
+animation - tween
+multi widget single page (random widgets in 1 page)
+widget tree(widget inside widget)
+refactoring const = const MyApp({super.key}), add const to all
+refactoring class = put everything in class
+refactoring method = put in method

@@ -11,7 +11,7 @@ int main(){
     scanf(" %c", &ed);
 
     printf("Enter string: ");
-    scanf("%49s", input);
+    scanf("%s", input);
 
     int ctrl = 0;
     output[ctrl++] = sd;

@@ -43,7 +43,7 @@ int main()
     for (int j = 1; j < n; j++)
     {
         int minDist = 30000;
-
+        // find min dist
         for (int i = 0; i < n; i++)
         {
             if (visited[i] != 1)
@@ -56,12 +56,13 @@ int main()
             }
         }
         visited[current] = 1;
-
+        // calc other distances
         for (int i = 0; i < n; i++)
         {
             if (visited[i] != 1)
             {
-                if(distance[i] > minDist + cost[current][i]){
+                if (distance[i] > minDist + cost[current][i])
+                {
                     distance[i] = minDist + cost[current][i];
                     path[i] = current;
                 }
@@ -71,13 +72,15 @@ int main()
     // print
     printf("Distance Node\t\t Path\n");
 
-    for(int i = 0; i < n; i++){
-        printf("\n%d\t",distance[i]);
-        printf("%d\t\t",i);
-        printf("%d",i);
+    for (int i = 0; i < n; i++)
+    {
+        printf("\n%d\t", distance[i]);
+        printf("%d\t\t", i);
+        printf("%d", i);
         int next = i;
         int count = 0;
-        while(next != source && count < n){
+        while (next != source && count < n)
+        {
             next = path[next];
             printf("<- %d", next);
             count++;

@@ -9,7 +9,7 @@ w2 = np.random.randn(1, 2)
 b2 = np.random.randn(1, 1)
 
 # Input as a column vector
-x = np.array([1, 2]).reshape(2, 1)
+x = np.array([0.5, 0.8]).reshape(2, 1)
 print("Input:", x)
 
 # Activation function
@@ -25,10 +25,10 @@ print(z1)
 A1 = sigmoid(z1)
 
 print("\nActivation of first hidden node:")
-print(A1[0][0])
+print(A1[0])
 
 print("\nActivation of second hidden node:")
-print(A1[1][0])
+print(A1[1])
 
 print("\nHidden layer activation:")
 print(A1)
@@ -37,3 +37,6 @@ print(A1)
 z2 = np.dot(w2, A1) + b2
 print("\nWeighted sum at output layer (z2):")
 print(z2)
+
+output = sigmoid(z2)
+print("Network output: ", output)

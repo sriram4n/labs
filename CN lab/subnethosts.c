@@ -4,7 +4,7 @@ int a[10][10], visited[10], n;
 
 void spanning_tree(int root)
 {
-    int queue[10], front = 0, rear = 0;
+    int queue[10], front = 0, rear = 0; 
 
     queue[rear++] = root;
     visited[root] = 1;

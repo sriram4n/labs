@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -22,7 +21,7 @@ int main()
 
     Frame buffer[n];
 
-    printf("Enter the frame number and data count of codes:\n");
+    printf("Enter the frame number and data:\n");
 
     for (int i = 0; i < n; i++)
     {

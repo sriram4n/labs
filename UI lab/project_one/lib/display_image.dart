@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: Column(
             children: <Widget>[
-              Image.asset('Profile.png'),
+              Image.asset('Profile.png'), 
+              // or Image.network('url', width, height)
               Text(
                 "I AM GREATTTTTT AND I LIKE ROBLOX AMONGUS SUSSYBAKA 420 69 67",
               ),

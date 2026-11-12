@@ -15,7 +15,8 @@ int main()
     char svname;
     scanf("%d %c", &svno, &svname);
 
-    int srcdelay[n];
+    //adj input
+    int srcdelay[adno];
     char adname[adno];
     for (int i = 0; i < adno; i++)
     {
@@ -23,13 +24,13 @@ int main()
         scanf("%d %c", &srcdelay[i], &adname[i]);
     }
 
+    //neighbor dealys
     int neighbor_delay[adno][n];
     for (int i = 0; i < adno; i++)
     {
         printf("\nEnter time delay from %c to all other vertices", adname[i]);
         for (int j = 0; j < n; j++)
         {
-
             scanf(" %d", &neighbor_delay[i][j]);
         }
     }
@@ -38,7 +39,7 @@ int main()
     for (int i = 0; i < n; i++)
     {
         int min = 30000;
-        char name = '-';
+        char name;
 
         for (int j = 0; j < adno; j++)
         {
@@ -49,7 +50,7 @@ int main()
             }
         }
 
-        if (i != svno - 1)
+        if (i + 1 != svno) //it is not the source vector
         {
             printf("\n %d %c", min, name);
         }

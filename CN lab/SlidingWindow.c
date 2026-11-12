@@ -21,7 +21,7 @@ int main(){
     for(int i = 0; i < n; i++){
         printf("%d ", arr[i]);
 
-        if((i + 1) % window_size == 0 || i == n - 1){
+        if((i + 1) % window_size == 0 || i + 1 == n){ // divisible by window size or last element
             printf("\nAck received;\n");
         }
     }

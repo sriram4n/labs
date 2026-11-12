@@ -36,13 +36,13 @@ int main()
         {
             bucket += incoming[i];
         }
-        int sent = bucket > rate ? rate : bucket;
+        int sent = bucket > rate ? rate : bucket; //smaller one is negated
         bucket -= sent;
         printf("%d\t%d\t\t%d\t%d\t%d\t\t%d\n",
                i + 1, incoming[i], bucket + sent, dropped, sent, bucket); // print
     }
     int i = n;
-    while (bucket > 0)
+    while (bucket > 0) //empty leftover bucket
     {
         int sent = rate > bucket ? bucket : rate;
         bucket -= sent;
