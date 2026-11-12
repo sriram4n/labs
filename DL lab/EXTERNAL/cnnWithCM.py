@@ -13,10 +13,6 @@ print("Preparing images")
 x_train = x_train.astype("float32")/255.0
 x_test = x_test.astype("float32")/255.0
 
-# convert labels
-y_train = y_train.astype("int64")
-y_test = y_test.astype("int64")
-
 # reshape
 x_train = x_train[..., np.newaxis]
 x_test = x_test[..., np.newaxis]

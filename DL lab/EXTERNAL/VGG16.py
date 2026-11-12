@@ -1,4 +1,5 @@
 import numpy as np
+import tensorflow as tf
 from tensorflow.keras.datasets import mnist
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Flatten, Dense
@@ -9,9 +10,6 @@ from sklearn.metrics import classification_report, confusion_matrix
 # load data
 print("Loading mnist dataset")
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
-
-print("Original training shape: ", x_train.shape)
-print("Original testing shape: ", x_test.shape)
 
 # normalize
 x_train = x_train.astype("float32")
@@ -29,9 +27,6 @@ x_test = np.repeat(x_test, 3, axis=-1)
 print("Resizing images")
 x_train = tf.image.resize(x_train, (32,32))
 x_test = tf.image.resize(x_test, (32,32))
-
-print("Training shape: ", x_train.shape)
-print("Testing shape: ", x_test.shape)
 
 # preprocess for vgg16
 x_train = preprocess_input(x_train)

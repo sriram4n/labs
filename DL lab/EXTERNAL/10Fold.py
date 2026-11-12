@@ -11,18 +11,13 @@ print("Loading mnist dataset")
 
 # combine train and test data
 X = np.concatenate((x_train, x_test)) 
-y = np.concatenate((y_train, y_test)) 
+y = np.concatenate((y_train, y_test))
 
 # normalize
 print("Preparing images")
 X = X.astype("float32")/255.0
-
 # reshape
 X = X[..., np.newaxis]
-y = y.astype("int64")
-
-print("Dataset shape: ", X.shape)
-print("Labels shape: ", y.shape)
 
 # 10 fold cross validation
 kf = KFold(n_splits=10, shuffle=True, random_state=42)
