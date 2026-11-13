@@ -11,7 +11,7 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42, stratify=y
 )
 
-model = DecisionTreeClassifier(random_state=42)
+model = DecisionTreeClassifier()
 model.fit(X_train, y_train)
 print("Test accuracy:", accuracy_score(y_test, model.predict(X_test)))
 
@@ -23,7 +23,7 @@ param_grid = {
 }
 
 grid = GridSearchCV(
-                        DecisionTreeClassifier(random_state=42),
+                        DecisionTreeClassifier(),
                         param_grid,
                         cv=5,
                         scoring='accuracy',
