@@ -28,7 +28,7 @@ plt.show()
 
 languages = ["Python", "Java", "C"]
 students = [40, 35, 25]
-plt.pie(students, labels=languages, autopct="%1.1f%%")
+plt.pie(students, labels=languages)
 plt.show()
 
 marks = [50, 55, 60, 65, 70, 70, 75, 80, 85, 90]
