@@ -25,3 +25,15 @@ plt.show()
 
 plt.bar(range(len(a)), a)
 plt.show()
+
+languages = ["Python", "Java", "C"]
+students = [40, 35, 25]
+plt.pie(students, labels=languages, autopct="%1.1f%%")
+plt.show()
+
+marks = [50, 55, 60, 65, 70, 70, 75, 80, 85, 90]
+plt.hist(marks, bins=5, edgecolor="black")
+plt.xlabel("Marks")
+plt.ylabel("Number of Students")
+plt.title("Marks Histogram")
+plt.show()
